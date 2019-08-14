@@ -40,6 +40,8 @@
       "limit": 120,
       "ignore-pattern": "^import |^export {(.*?)}"
     }
-  ]
-}
+  ],
+    "jsx-no-lambda": false,
+    "jsx-no-bind": false
+  }
 }
