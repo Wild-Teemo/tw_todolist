@@ -35,6 +35,7 @@ Basic App has already finished and there are something more need to be done.
 - [X] clear all completed items
 - [X] show count of left items
 - [X] double click and edit item
+- [ ] add test
 - [ ] refactor code
 - [ ] replace react-redux with react-hook
 - [ ] try to write a wiki doc to record learning process
