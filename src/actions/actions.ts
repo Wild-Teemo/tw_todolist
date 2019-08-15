@@ -1,6 +1,6 @@
 import {createAction} from 'redux-actions';
+import { ITodo } from "../App";
 import { ADD_TODO, CLEAR_COMPLETED, COMPLETE_ALL, COMPLETE_TODO, DELETE_TODO, EDIT_TODO } from "../constants";
-import { ITodo } from "../types";
 
 const addTodo = createAction<ITodo, string>(
     ADD_TODO,

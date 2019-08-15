@@ -12,54 +12,28 @@ interface IFooterProps {
 }
 
 class Footer extends React.Component<IFooterProps> {
-    renderTodoCount() {
-        const { activeCount } = this.props;
-        const itemWord = activeCount === 1 ? 'item' : 'items';
 
-        return (
-            <span className="todo-count">
-        <strong>{activeCount || 'No'}</strong> {itemWord} left
-      </span>
-        );
-    }
-
-    renderFilterLink(filter:string) {
-        const title : string = filter;
-        const { filter: selectedFilter, onShow } = this.props;
-
-        return (
-            <a className={classNames({ selected: filter === selectedFilter })}
-               style={{ cursor: 'pointer' }}
-               onClick={() => onShow(filter)}>
-                {title}
-            </a>
-        );
-    }
-
-    renderClearButton():any {
-        const { completedCount, onClearCompleted } = this.props;
-        if (completedCount > 0) {
-            return (
-                <button className="clear-completed"
-                        onClick={() => onClearCompleted()} >
-                    Clear completed
-                </button>
-            );
-        }
-    }
-
-    render() {
-        return (
+render() {
+    const { completedCount, activeCount, filter:selectFilter, onClearCompleted, onShow} = this.props;
+    return (
             <footer className="footer">
-                {this.renderTodoCount()}
+                 <span className="todo-count">{activeCount}item left</span>
                 <ul className="filters">
-                    {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter =>
+                    {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter=>
                         <li key={filter}>
-                            {this.renderFilterLink(filter)}
+                            <a className={classNames({selected: filter === selectFilter})}
+                               style={{cursor: 'pointer'}}
+                               onClick={() => onShow(filter)}>
+                                {filter}
+                            </a>
                         </li>
                     )}
                 </ul>
-                {this.renderClearButton()}
+                {completedCount > 0 &&
+                <button className="clear-completed"
+                        onClick={() => onClearCompleted()}>
+                    Clear completed
+                </button>}
             </footer>
         );
     }

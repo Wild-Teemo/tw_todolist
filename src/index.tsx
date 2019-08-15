@@ -5,9 +5,10 @@ import { createStore, Store } from 'redux';
 import App from "./App";
 import rootReducer from "./reducers";
 
+
 const initialState = {};
 
-const store: Store<any> = createStore(rootReducer, initialState);
+const store: Store = createStore(rootReducer, initialState);
 
 ReactDOM.render(
     <Provider store={store}>

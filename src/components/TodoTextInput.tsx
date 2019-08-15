@@ -14,8 +14,8 @@ interface ITodoTextInputState {
 }
 
 class TodoTextInput extends React.Component<ITodoTextInputProps, ITodoTextInputState> {
-    constructor(props: ITodoTextInputProps, context: any) {
-        super(props, context);
+    constructor(props: ITodoTextInputProps) {
+        super(props);
         this.state = {
             text: this.props.text || ''
         };
@@ -29,12 +29,10 @@ class TodoTextInput extends React.Component<ITodoTextInputProps, ITodoTextInputS
                 this.setState({ text: '' });
             }
         }
-
     }
 
     handleChange(e: any) {
         this.setState({ text: e.target.value });
-
     }
 
     handleBlur(e: any) {

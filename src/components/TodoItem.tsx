@@ -1,6 +1,6 @@
 import classNames = require("classnames");
-import * as React from 'react';
-import { ITodo } from "../types";
+import * as React from "react";
+import { ITodo } from "../App";
 import TodoTextInput from "./TodoTextInput";
 
 interface ITodoItemProps {
@@ -8,15 +8,16 @@ interface ITodoItemProps {
     editTodo: (todo:ITodo, text:string)=>void;
     deleteTodo: (todo:ITodo)=>void;
     completeTodo: (todo:ITodo)=>void;
-    key?: any;
 }
+
 interface ITodoItemState {
     editing: boolean;
 }
 
+
 class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
-    constructor(props: ITodoItemProps, context: any) {
-        super(props, context);
+    constructor(props: ITodoItemProps) {
+        super(props);
         this.state = {
             editing: false
         };
@@ -34,10 +35,8 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
         }
         this.setState({ editing: false });
     }
-
     render() {
         const {todo, completeTodo, deleteTodo} = this.props;
-
         let element;
         if (this.state.editing) {
             element = (
